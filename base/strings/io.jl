@@ -250,6 +250,8 @@ need_full_hex(s::AbstractString, i::Int) = !done(s,i) && isxdigit(next(s,i)[1])
 escape_nul(s::AbstractString, i::Int) =
     !done(s,i) && '0' <= next(s,i)[1] <= '7' ? "\\x00" : "\\0"
 
+# TODO: handle escaping invalid UTF-8
+
 """
     escape_string([io,] str::AbstractString[, esc::AbstractString]) -> AbstractString
 
@@ -283,6 +285,8 @@ function print_quoted(io, s::AbstractString)
 end
 
 # general unescaping of traditional C and Unicode escape sequences
+
+# TODO: handle unescaping invalid UTF-8 sequences
 
 """
     unescape_string([io,] s::AbstractString) -> AbstractString

@@ -106,6 +106,8 @@ end
 
 ## prevind and nextind ##
 
+# TODO: these need updating
+
 function prevind(s::String, i::Integer)
     j = Int(i)
     e = sizeof(s)
